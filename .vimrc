@@ -47,7 +47,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 nmap <F8> :TagbarToggle<CR>
 
 " YCM CONFIG
-let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/youcompleteme/.ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " CLANG FORMAT CONFIG
