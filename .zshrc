@@ -107,7 +107,11 @@ prompt_context() {
     fi
 }
 
+# FZF CONFIG
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# EXPORTS AND ALIASES
 export PATH="$PATH":/home/mdziewulski/depot_tools
 export PATH=/home/mdziewulski/tools/bison:"$PATH"
 export BISON_PKGDATADIR=/home/mdziewulski/tools/bison/data
+alias reboot="echo NOOOOOOOOOOOOOOOOOOOOO!"
