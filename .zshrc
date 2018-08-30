@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
+  export ZSH=/home/mdziewulski/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -107,11 +107,4 @@ prompt_context() {
     fi
 }
 
-# FZF CONFIG
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# EXPORTS AND ALIASES
-export PATH="$PATH":/home/mdziewulski/depot_tools
-export PATH=/home/mdziewulski/tools/bison:"$PATH"
-export BISON_PKGDATADIR=/home/mdziewulski/tools/bison/data
-alias reboot="echo NOOOOOOOOOOOOOOOOOOOOO!"
