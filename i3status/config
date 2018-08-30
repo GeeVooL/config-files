@@ -1,0 +1,81 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+}
+
+order += "cpu_usage"
+order += "load"
+#order += "ipv6"
+order += "disk /"
+order += "disk /home/mdziewulski/"
+order += "run_watch DHCP"
+order += "run_watch VPN"
+order += "ethernet enp5s0"
+order += "ethernet eno1"
+order += "volume master"
+order += "tztime local"
+
+wireless _first_ {
+        format_up = " W: (%quality at %essid) %ip "
+        format_down = " W: down "
+}
+
+ethernet eno1 {
+        # if you use %speed, i3status requires root privileges
+        format_up = " 🖧 DESKTOP: %ip (%speed) "
+        format_down = " 🖧 DESKTOP down"
+}
+
+ethernet enp5s0 {
+        # if you use %speed, i3status requires root privileges
+        format_up = " 🖧 LAB: %ip (%speed) "
+        format_down = " 🖧 LAB down"
+}
+
+battery 0 {
+        format = " %status %percentage %remaining "
+}
+
+run_watch DHCP {
+        format = " %title: %status "
+        pidfile = " /var/run/dhclient*.pid "
+}
+
+run_watch VPN {
+        format = " %title: %status "
+        pidfile = " /var/run/vpnc/pid "
+}
+
+tztime local {
+        format = " %Y-%m-%d %H:%M:%S "
+}
+
+load {
+        format = " LOAD: %1min "
+}
+
+disk "/" {
+        format = " SSD: %avail "
+}
+
+disk "/home/mdziewulski/vewd" {
+        format = " HDD: %avail "
+}
+
+volume master {
+        format = " ♪: %volume "
+        format_muted = " ♪: muted (%volume) "
+        device = "pulse"
+}
+
+cpu_usage {
+    format = " CPU: %usage "
+}
