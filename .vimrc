@@ -8,19 +8,20 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
 Plugin 'Yggdroot/indentLine'
 Plugin 'valloric/youcompleteme'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'raimondi/delimitmate'
-Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-jdaddy'
 Plugin 'elzr/vim-json'
+Plugin 'kelan/gyp.vim'
 Plugin 'joshdick/onedark.vim'
 " Plugins end
 call vundle#end()
@@ -55,6 +56,7 @@ nmap <F8> :TagbarToggle<CR>
 
 " YCM CONFIG
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " CLANG FORMAT CONFIG
 let g:clang_format#code_style = "chromium"
