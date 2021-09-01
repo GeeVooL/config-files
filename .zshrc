@@ -1,9 +1,9 @@
-# If you come from bash you might have to change your $PATH.
+# Export path
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/mdziewulski/.oh-my-zsh"
-
+export ZSH="$HOME/.oh-my-zsh"
+        
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -69,16 +69,17 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  colored-man-pages
-  docker
-  docker-compose
-  git
-  git-flow-avh
-  osx
-  ssh-agent
-  sudo
-  zsh-autosuggestions
-  zsh-syntax-highlighting
+  colored-man-pages         # Built-in
+  docker                    # Built-in
+  docker-compose            # Built-in
+  git                       # Built-in
+  gitignore                 # Built-in
+  git-flow-avh              # Built-in
+  osx                       # Built-in
+  ssh-agent                 # Built-in
+  sudo                      # Built-in
+  zsh-autosuggestions       # https://github.com/zsh-users/zsh-autosuggestions
+  zsh-syntax-highlighting   # https://github.com/zsh-users/zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -109,5 +110,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+### Custom configuration
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+
+### FZF configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+### Starship configuration
 eval "$(starship init zsh)"
