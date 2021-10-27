@@ -42,7 +42,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -78,11 +78,13 @@ plugins=(
   osx                       # Built-in
   ssh-agent                 # Built-in
   sudo                      # Built-in
+  conda-zsh-completion      # https://github.com/esc/conda-zsh-completion
   zsh-autosuggestions       # https://github.com/zsh-users/zsh-autosuggestions
   zsh-syntax-highlighting   # https://github.com/zsh-users/zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
+autoload -U compinit && compinit
 
 # User configuration
 
