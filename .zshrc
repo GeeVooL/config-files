@@ -69,18 +69,24 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  colored-man-pages         # Built-in
-  docker                    # Built-in
-  docker-compose            # Built-in
-  git                       # Built-in
-  gitignore                 # Built-in
-  git-flow-avh              # Built-in
-  osx                       # Built-in
-  ssh-agent                 # Built-in
-  sudo                      # Built-in
-  conda-zsh-completion      # https://github.com/esc/conda-zsh-completion
-  zsh-autosuggestions       # https://github.com/zsh-users/zsh-autosuggestions
-  zsh-syntax-highlighting   # https://github.com/zsh-users/zsh-syntax-highlighting
+  adb                     # Built-in
+  aliases                 # Built-in
+  colored-man-pages       # Built-in
+  command-not-found       # Built-in
+  docker                  # Built-in
+  docker-compose          # Built-in
+  encode64                # Built-in
+  extract                 # Built-in
+  git                     # Built-in
+  gitignore               # Built-in
+  git-flow-avh            # Built-in
+  macos                   # Built-in
+  ssh-agent               # Built-in
+  sudo                    # Built-in
+  poetry                  # Included with Poetry: https://python-poetry.org/docs/master/#oh-my-zsh
+  conda-zsh-completion    # https://github.com/esc/conda-zsh-completion
+  zsh-autosuggestions     # https://github.com/zsh-users/zsh-autosuggestions
+  zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -112,26 +118,59 @@ autoload -U compinit && compinit
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# ================================================================================
+# ==============================================================================
 # Custom configuration
-# ================================================================================
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
+# ==============================================================================
+export PATH="$HOME/.local/bin:$PATH"
 
-export EDITOR='nvim'
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='code --wait'
+fi
 
-# ================================================================================
+alias zshconfig="${EDITOR} ~/.zshrc && source ~/.zshrc"
+alias ohmyzsh="${EDITOR} ~/.oh-my-zsh"
+
+# ==============================================================================
 # FZF configuration
-# ================================================================================
+# ==============================================================================
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# ================================================================================
+# ==============================================================================
+# Conda configuration
+# ==============================================================================
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+if [ $? -eq 0 ]; then
+  eval "$__conda_setup"
+else
+  if [ -f "/usr/local/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+    . "/usr/local/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+  else
+    export PATH="/usr/local/Caskroom/miniforge/base/bin:$PATH"
+  fi
+fi
+unset __conda_setup
+
+if [ -f "/usr/local/Caskroom/miniforge/base/etc/profile.d/mamba.sh" ]; then
+  . "/usr/local/Caskroom/miniforge/base/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+# ==============================================================================
+# jenv configuration
+# ==============================================================================
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# ==============================================================================
 # Starship configuration
-# ================================================================================
+# ==============================================================================
 eval "$(starship init zsh)"
 
-# ================================================================================
+# ==============================================================================
 # iterm2 shell integration
-# ================================================================================
+# ==============================================================================
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
